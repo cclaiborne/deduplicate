@@ -43,13 +43,13 @@ class List
     h = Hash.new()
     current = @head
     while current.nexxt != nil  && current.nexxt.nexxt != nil
-      if h.has_value?(true)
+      if h.has_key?(current.nexxt.data)
         current.nexxt = current.nexxt.nexxt
       else
-        h[current.data] = true
+        h[current.nexxt.data] = true
       end
-      #puts current.data.to_s + " " + h[current.data]
       current = current.nexxt
+      #puts current.data.to_s + " " + h[current.data]
     end
   end
 
