@@ -40,10 +40,10 @@ class List
   end
 
   def remove_duplicates
-    h = Hash.new(false)
+    h = Hash.new()
     current = @head
     while current.nexxt != nil  && current.nexxt.nexxt != nil
-      if h[current.data] == true
+      if h.has_value?(true)
         current.nexxt = current.nexxt.nexxt
       else
         h[current.data] = true
