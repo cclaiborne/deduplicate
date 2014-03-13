@@ -42,14 +42,14 @@ class List
   def remove_duplicates
     h = Hash.new(false)
     current = @head
-    while current.nexxt != nil
-      if h[current.data] = true
-        temp = current
-        current = current.nexxt
-        temp.nexxt = current.nexxt
+    while current.nexxt != nil  && current.nexxt.nexxt != nil
+      if h[current.data] == true
+        current.nexxt = current.nexxt.nexxt
       else
         h[current.data] = true
       end
+      #puts current.data.to_s + " " + h[current.data]
+      current = current.nexxt
     end
   end
 
@@ -63,8 +63,8 @@ class List
 end
 
 @list = List.new
-200.times do
-  @list.add((rand(100)))
+10.times do
+  @list.add((rand(10)))
 end
 
 @list.print_nodes
