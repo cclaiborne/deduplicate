@@ -68,8 +68,8 @@ class List
 end
 
 @list = List.new
-10.times do
-  @list.add((rand(10)))
+200.times do
+  @list.add((rand(100)))
 end
 
 @list.print_nodes
