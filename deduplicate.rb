@@ -19,8 +19,8 @@ class List
     while current.nexxt != nil
       current = current.nexxt
     end
-      current.nexxt = temp;
-      temp.back = @current;
+    current.nexxt = temp;
+    temp.back = @current;
   end
 
   def delete(n)
@@ -30,8 +30,8 @@ class List
       current = current.nexxt
       i = i + 1
     end
-      puts "deleting " + current.nexxt.data.to_s
-      current.nexxt = current.nexxt.nexxt
+    puts "deleting " + current.nexxt.data.to_s
+    current.nexxt = current.nexxt.nexxt
       # temp, temp2 = current
       # current = current.nexxt
       # temp.nexxt = current.nexxt
@@ -54,8 +54,6 @@ class List
       current = current.nexxt
       i = i + 1
     end
-
-
   end
 
   def print_nodes
@@ -68,8 +66,8 @@ class List
 end
 
 @list = List.new
-200.times do
-  @list.add((rand(100)))
+10.times do
+  @list.add((rand(5)))
 end
 
 @list.print_nodes
