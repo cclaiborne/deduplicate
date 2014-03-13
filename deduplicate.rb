@@ -31,9 +31,10 @@ class List
       i = i + 1
     end
       puts "deleting " + current.nexxt.data.to_s
-      temp, temp2 = current
-      current = current.nexxt
-      temp.nexxt = current.nexxt
+      current.nexxt = current.nexxt.nexxt
+      # temp, temp2 = current
+      # current = current.nexxt
+      # temp.nexxt = current.nexxt
       # temp = temp.nexxt
       # temp.back = temp2
       # puts  "points to the previous" + temp.back.data.to_s
@@ -42,15 +43,19 @@ class List
   def remove_duplicates
     h = Hash.new()
     current = @head
-    while current.nexxt != nil  && current.nexxt.nexxt != nil
-      if h.has_key?(current.nexxt.data)
-        current.nexxt = current.nexxt.nexxt
+    i = 0
+    while current.nexxt != nil
+      if h.has_key?(current.data)
+        delete(i - 1)  #deletes current node
+        i = i - 1
       else
-        h[current.nexxt.data] = true
+        h[current.data] = true
       end
       current = current.nexxt
-      #puts current.data.to_s + " " + h[current.data]
+      i = i + 1
     end
+
+
   end
 
   def print_nodes
@@ -71,6 +76,8 @@ end
 puts "remove the duplicates:"
 @list.remove_duplicates
 @list.print_nodes
+
+
 
 
 
